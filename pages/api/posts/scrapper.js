@@ -1,34 +1,44 @@
-import { dbConnect } from '../../../utils/dbConnect'
-import Scrapper from '../../../services/scrapper'
-import { parsePosts } from '../../../controllers/PostController'
-import { verifyCookie } from '../../../controllers/AuthController'
+import { dbConnect } from "../../../utils/dbConnect";
+import Scrapper from "../../../services/scrapper";
+import { parsePosts } from "../../../controllers/PostController";
+import { verifyCookie } from "../../../controllers/AuthController";
 
-dbConnect()
+dbConnect();
 
 export default async (req, res) => {
-  const { method }  = req
+  const { method } = req;
 
-  switch(method) {
+  switch (method) {
     case "GET":
       try {
-        const authenticated = await verifyCookie(req.cookies.auth)
-
-        if(!authenticated) {
-          res.status(401).json({ success: false, error: 'You are not authenticated' })
-          return
+        const authenticated = await verifyCookie(req.cookies.auth);
+        console.log(
+          authenticated,
+          req.cookies.auth,
+          "lets see result\n\n\n\n\n\n\n\n\n\n\n"
+        );
+        if (!authenticated) {
+          res
+            .status(401)
+            .json({ success: false, error: "You are not authenticated" });
+          return;
         }
 
-        const postsFromScrapper = await Scrapper()
-        const posts = await parsePosts(postsFromScrapper)
-
-        res.status(200).json({ success: true, data: posts })
-      } catch(error) {
-        console.log('error', error)
-        res.status(400).json({ success: false })
+        const postsFromScrapper = await Scrapper();
+        const posts = await parsePosts(postsFromScrapper);
+        console.log(
+          postsFromScrapper,
+          posts,
+          "lets see result\n\n\n\n\n\n\n\n\n\n\n"
+        );
+        res.status(200).json({ success: true, data: posts });
+      } catch (error) {
+        console.log("error", error);
+        res.status(400).json({ success: false });
       }
-      break
+      break;
     default:
-      res.status(400).json({ success: false })
-      break
+      res.status(400).json({ success: false });
+      break;
   }
-}
+};

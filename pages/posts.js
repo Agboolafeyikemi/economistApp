@@ -11,10 +11,6 @@ export default function Posts() {
 
   function fetchPosts() {
     setFetched(false);
-    console.log(
-      { withCredentials: true },
-      "withCredentials\n\n\n\n\n\n\n\n\n\n"
-    );
     axios
       .get("/api/posts/scrapper", { withCredentials: true })
       .then((response) => {
@@ -40,7 +36,7 @@ export default function Posts() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        <h1 className={styles.title}>Posts from Economist's Landingpage</h1>
+        <h1 className={styles.title}>Posts from Economist's Landing page</h1>
 
         {!fetched && <p>Fetching Posts...</p>}
 

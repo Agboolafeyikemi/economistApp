@@ -111,6 +111,69 @@
   height: 1em;
   margin-left: 0.5rem;
 }
+.Auth {
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
+  box-shadow: 0 2px 3px #ccc;
+  border: 1px solid #eee;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.inputBox {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.inputBox label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+.inputElement {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font: inherit;
+  padding: 6px 10px;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+.InputElement:focus {
+  outline: none;
+  background-color: #ccc;
+}
+.btn {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: 10px;
+  font-weight: 700;
+  color: #5c9210;
+  margin-bottom: 8px;
+}
+.goto {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px;
+  margin: 10px;
+  font-weight: 700;
+  color: #944317;
+}
+@media (min-width: 600px) {
+  .Auth {
+    width: 500px;
+  }
+}
 
 @media (max-width: 600px) {
   .grid {

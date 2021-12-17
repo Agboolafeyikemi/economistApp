@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Router from "next/router";
 import axios from "axios";
+import classes from "../styles/Home.module.css";
 
 export default function Login({ goToSignUp }) {
   const [submitting, setSubmitting] = useState(false),
@@ -9,14 +10,12 @@ export default function Login({ goToSignUp }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("submittings\n\n\n\n\n\n\n\n\n\n\n\n\n");
     setSubmitting(true);
 
     const params = {
       email,
       password,
     };
-    console.log(params, "\n\n\n\n\n\n\n\nparams\n\n\n\n\n\n\n\n\n\n\n\n\n");
     axios
       .post("/api/login", params)
       .then(() => {
@@ -26,35 +25,45 @@ export default function Login({ goToSignUp }) {
       .catch((err) => {
         setSubmitting(false);
         console.error("Error", err);
-        // Router.push("/posts");
       });
   }
 
   return (
-    <div>
+    <div className={classes.Auth}>
       <h2>Login</h2>
 
       <form onSubmit={handleSubmit}>
-        <input
-          name="email"
-          type="email"
-          placeholder="john@doe.com"
-          required={true}
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-        <input
-          name="password"
-          type="password"
-          placeholder="password"
-          required={true}
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-
-        <button type="submit">Log in</button>
+        <div className={classes.inputBox}>
+          <label></label>
+          <input
+            name="email"
+            type="email"
+            placeholder="Mail Address"
+            required={true}
+            onChange={(e) => setEmail(e.target.value)}
+            className={classes.inputElement}
+          ></input>
+        </div>
+        <div className={classes.inputBox}>
+          <label></label>
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            required={true}
+            className={classes.inputElement}
+            onChange={(e) => setPassword(e.target.value)}
+          ></input>
+        </div>
+        <button className={classes.btn} type="submit">
+          Log in
+        </button>
         {submitting && <p>Logging in...</p>}
       </form>
 
-      <a onClick={() => goToSignUp()}>Go To SignUp</a>
+      <a className={classes.goto} onClick={() => goToSignUp()}>
+        Go To SignUp
+      </a>
     </div>
   );
 }

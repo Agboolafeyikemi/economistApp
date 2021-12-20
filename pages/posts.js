@@ -40,15 +40,22 @@ export default function Posts() {
 
         {!fetched && <p>Fetching Posts...</p>}
 
-        <div className={styles.grid}>
-          {posts.map((post) => (
-            <Post
-              headline={headline}
-              title={post.title.substring(0, 30)}
-              url={post.url}
-              key={post.id}
-            ></Post>
-          ))}
+        <div className={styles.wrapper}>
+          {/* <div className={styles.grid}> */}
+          <div>
+            {posts.map((post) => {
+              console.log(post, "\n\n\n\n\n\n\n\n\npost\n\n\n\n\n\n\n\n\n\n");
+              return (
+                <Post
+                  headline={headline}
+                  title={post.title.substring(0, 30)}
+                  url={post.url}
+                  key={post.id}
+                ></Post>
+              );
+            })}
+            {/* </div> */}
+          </div>
         </div>
       </main>
     </div>

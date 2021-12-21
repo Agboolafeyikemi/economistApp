@@ -12,11 +12,7 @@ export default async (req, res) => {
     case "GET":
       try {
         const authenticated = await verifyCookie(req.cookies.auth);
-        console.log(
-          authenticated,
-          req.cookies.auth,
-          "lets see result\n\n\n\n\n\n\n\n\n\n\n"
-        );
+
         if (!authenticated) {
           res
             .status(401)
@@ -26,6 +22,7 @@ export default async (req, res) => {
 
         const postsFromScrapper = await Scrapper();
         const posts = await parsePosts(postsFromScrapper);
+
         res.status(200).json({ success: true, data: posts });
       } catch (error) {
         console.log("error", error);

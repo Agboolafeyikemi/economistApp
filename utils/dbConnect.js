@@ -1,7 +1,5 @@
 import mongoose, { Collection } from "mongoose";
-const dotenv = require("dotenv");
 
-dotenv.config();
 const connection = {};
 
 export async function dbConnect(url = process.env.MONGO_URI) {

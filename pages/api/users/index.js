@@ -1,23 +1,23 @@
-import { dbConnect } from '../../../utils/dbConnect'
-import { signUp } from '../../../controllers/AuthController'
+import { dbConnect } from "../../../utils/dbConnect";
+import { signUp } from "../../../controllers/AuthController";
 
-dbConnect()
+dbConnect();
 
 export default async (req, res) => {
-  const { method }  = req
+  const { method } = req;
 
-  switch(method) {
+  switch (method) {
     case "POST":
       try {
-        const user = await signUp(req.body)
+        const user = await signUp(req.body);
 
-        res.status(201).json({ success: true, data: user })
-      } catch(error) {
-        res.status(400).json({ success: false, error })
+        res.status(201).json({ success: true, data: user });
+      } catch (error) {
+        res.status(400).json({ success: false, error });
       }
-      break
+      break;
     default:
-      res.status(400).json({ success: false })
-      break
+      res.status(400).json({ success: false });
+      break;
   }
-}
+};

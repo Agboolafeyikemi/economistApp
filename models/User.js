@@ -6,18 +6,15 @@ const mongoose = require("mongoose"),
 const UserSchema = new Schema({
   name: {
     type: String,
-    index: true,
     required: [true, "Please add your Full Name"],
   },
   email: {
     type: String,
     unique: true,
-    index: true,
     required: [true, "Please provide an email"],
   },
   password: {
     type: String,
-    index: true,
     required: [true, "Please provide a password"],
   },
 });

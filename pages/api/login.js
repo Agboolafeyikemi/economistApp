@@ -11,6 +11,16 @@ export default async (req, res) => {
     case "POST":
       try {
         const user = await User.findOne({ email: req.body.email });
+        console.log(
+          user,
+          User,
+          "\n\n\n\n\n\nUserauthenticated\n\n\n\n\n\n\n\n\n"
+        );
+        const authenticated = await signIn(user, req.body.password, res);
+        console.log(
+          authenticated,
+          "\n\n\n\n\n\nauthenticated\n\n\n\n\n\n\n\n\n"
+        );
         if (!authenticated) {
           res
             .status(401)

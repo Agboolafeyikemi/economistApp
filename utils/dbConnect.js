@@ -1,11 +1,13 @@
 import mongoose, { Collection } from "mongoose";
+const dotenv = require("dotenv");
 
-require("dotenv").config();
+dotenv.config();
 const connection = {};
+
 export async function dbConnect(url = process.env.MONGO_URI) {
   if (connection.isConnected) return;
 
-  const db = await mongoose.connect("mongodb://localhost/economistapp", {
+  const db = await mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

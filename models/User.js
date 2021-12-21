@@ -6,15 +6,18 @@ const mongoose = require("mongoose"),
 const UserSchema = new Schema({
   name: {
     type: String,
+    index: true,
     required: [true, "Please add your Full Name"],
   },
   email: {
     type: String,
     unique: true,
+    index: true,
     required: [true, "Please provide an email"],
   },
   password: {
     type: String,
+    index: true,
     required: [true, "Please provide a password"],
   },
 });
@@ -37,6 +40,7 @@ UserSchema.pre("save", function (next) {
 });
 
 UserSchema.methods.comparePassword = (userPassword, cb) => {
+  console.log("this user", this);
   bcrypt.compare(userPassword, this.password, function (err, isMatch) {
     if (err) return cb(err);
     cb(null, isMatch);

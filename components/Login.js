@@ -39,7 +39,7 @@ export default function Login({ goToSignUp }) {
           <input
             name="email"
             type="email"
-            placeholder="Mail Address"
+            placeholder="john@doe.com"
             required={true}
             onChange={(e) => setEmail(e.target.value)}
             className={classes.inputElement}
@@ -50,19 +50,19 @@ export default function Login({ goToSignUp }) {
           <input
             name="password"
             type="password"
-            placeholder="Password"
+            placeholder="password"
             required={true}
             className={classes.inputElement}
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
-        <button className={classes.btn} type="submit">
+        <button type="submit" className={classes.btn}>
           Log in
         </button>
         {submitting && <p>Logging in...</p>}
       </form>
 
-      <a className={classes.goto} onClick={() => goToSignUp()}>
+      <a onClick={() => goToSignUp()} className={classes.goto}>
         Go To SignUp
       </a>
     </div>

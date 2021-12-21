@@ -20,11 +20,12 @@ export default function Login({ goToSignUp }) {
       .post("/api/login", params)
       .then(() => {
         setSubmitting(false);
+
         Router.push("/posts");
       })
       .catch((err) => {
         setSubmitting(false);
-        console.error("Error", err);
+        console.error("ErrorWEWE", err);
       });
   }
 

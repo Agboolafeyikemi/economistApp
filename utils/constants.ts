@@ -4,5 +4,5 @@ export default {
   DefaultErrMsg:
     "Something went wrong, Error has been logged and will be resolved as soon as possible",
   AuthenticationErrMsg: "Authentication Error, provide valid credentials",
-  TestDBUrl: "mongodb://3000/economist-clone-test",
+  TestDBUrl: "mongodb://3000/economistapp",
 };

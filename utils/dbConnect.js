@@ -2,7 +2,6 @@ import mongoose, { Collection } from "mongoose";
 
 require("dotenv").config();
 const connection = {};
-console.log(process.env.MONGO_UR, "process.env.MONGO_UR\n\n\n\n\n\n\n\n\n");
 export async function dbConnect(url = process.env.MONGO_URI) {
   if (connection.isConnected) return;
 

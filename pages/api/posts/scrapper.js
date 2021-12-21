@@ -26,11 +26,6 @@ export default async (req, res) => {
 
         const postsFromScrapper = await Scrapper();
         const posts = await parsePosts(postsFromScrapper);
-        console.log(
-          postsFromScrapper,
-          posts,
-          "lets see result\n\n\n\n\n\n\n\n\n\n\n"
-        );
         res.status(200).json({ success: true, data: posts });
       } catch (error) {
         console.log("error", error);

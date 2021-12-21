@@ -129,13 +129,13 @@
   position: relative;
   z-index: 1;
   border-radius: 20px;
-  padding: 2% 5%;
+
   max-width: 1280px;
   margin-top: 5rem;
   background-color: rgb(75 85 99);
 }
 .post {
-  width: 40%;
+  width: 32%;
 }
 .Auth {
   margin: 20px auto;
@@ -198,6 +198,18 @@
 @media (min-width: 600px) {
   .Auth {
     width: 500px;
+  }
+}
+@media (max-width: 500px) {
+  .post {
+    width: 100%;
+  }
+  .wrapper {
+    display: block;
+  }
+  .wrapper div {
+    padding: 0;
+    width: 100%;
   }
 }
 

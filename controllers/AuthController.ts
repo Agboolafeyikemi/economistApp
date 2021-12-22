@@ -5,8 +5,8 @@ import Constants from "../utils/constants";
 import User from "../models/User";
 import { ValidationError } from "../utils/errors";
 
-// const secret = Constants.secret;
-const secret = "dfcgvhbjnkmllmkjhg@wyuytrewascvbnmliuygfdcfvbhtf";
+const secret = Constants.secret;
+// const secret = "dfcgvhbjnkmllmkjhg@wyuytrewascvbnmliuygfdcfvbhtf";
 const signIn = async (user, password, res) => {
   const passwordMatch = await bcrypt.compare(password, user.password);
 
@@ -16,7 +16,12 @@ const signIn = async (user, password, res) => {
       email: user.email,
     };
     const jwt = sign(claims, secret, { expiresIn: "1h" });
-    console.log("/n/n/n/n/n/n/n/njwt,", jwt, "/n/n/n/n/n/n/n/n/njwt/n/n/n/n/n");
+    console.log(
+      "/n/n/n/n/n/n/n/njwt,",
+      jwt,
+      secret,
+      "/n/n/n/n/n/n/n/n/njwt/n/n/n/n/n"
+    );
     res.setHeader(
       "Set-Cookie",
       cookie.serialize("auth", jwt, {

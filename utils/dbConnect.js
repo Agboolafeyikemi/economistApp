@@ -2,9 +2,7 @@ import mongoose, { Collection } from "mongoose";
 
 const connection = {};
 
-export async function dbConnect(
-  url = "mongodb://localhost:127.0.0.1/economistapp"
-) {
+export async function dbConnect(url = process.env.MONGO_URI) {
   if (connection.isConnected) return;
 
   const db = await mongoose.connect(url, {

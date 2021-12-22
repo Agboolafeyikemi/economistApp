@@ -41,10 +41,8 @@ export default function Posts() {
         {!fetched && <p>Fetching Posts...</p>}
 
         <div className={styles.wrapper}>
-          {/* <div className={styles.grid}> */}
           <div>
             {posts.map((post) => {
-              console.log(post, "\n\n\n\n\n\n\n\n\npost\n\n\n\n\n\n\n\n\n\n");
               return (
                 <Post
                   headline={headline}
@@ -54,7 +52,6 @@ export default function Posts() {
                 ></Post>
               );
             })}
-            {/* </div> */}
           </div>
         </div>
       </main>

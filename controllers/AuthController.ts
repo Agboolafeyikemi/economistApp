@@ -5,8 +5,8 @@ import Constants from "../utils/constants";
 import User from "../models/User";
 import { ValidationError } from "../utils/errors";
 
-const secret = Constants.secret;
-
+// const secret = Constants.secret;
+const secret = "dfcgvhbjnkmllmkjhg@wyuytrewascvbnmliuygfdcfvbhtf";
 const signIn = async (user, password, res) => {
   const passwordMatch = await bcrypt.compare(password, user.password);
 

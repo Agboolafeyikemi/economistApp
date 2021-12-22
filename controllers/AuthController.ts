@@ -16,7 +16,7 @@ const signIn = async (user, password, res) => {
       email: user.email,
     };
     const jwt = sign(claims, secret, { expiresIn: "1h" });
-
+    console.log("/n/n/n/n/n/n/n/njwt,", jwt, "/n/n/n/n/n/n/n/n/njwt/n/n/n/n/n");
     res.setHeader(
       "Set-Cookie",
       cookie.serialize("auth", jwt, {

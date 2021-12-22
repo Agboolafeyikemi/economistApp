@@ -13,7 +13,11 @@ export default async (req, res) => {
         const user = await User.findOne({ email: req.body.email });
 
         const authenticated = await signIn(user, req.body.password, res);
-
+        console.log(
+          "/n/n/n/n/n/n/n/nauthenticated,",
+          authenticated,
+          "/n/n/n/n/n/n/n/n/nauthenticatedt/n/n/n/n/n"
+        );
         if (!authenticated) {
           res
             .status(401)
